@@ -4,6 +4,9 @@ import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import Icon from '@/components/ui/icon';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 
 interface Product {
   id: number;
@@ -21,6 +24,8 @@ const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [cart, setCart] = useState<CartItem[]>([]);
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const [paymentDialogOpen, setPaymentDialogOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
   const products: Product[] = [
     { id: 1, name: 'FARM', price: 199, category: 'electronics', image: 'https://cdn.poehali.dev/files/89f8789e-2a95-4481-84e3-c61595c8c4d6.jpg' },
@@ -215,7 +220,10 @@ const Index = () => {
                       <p className="text-2xl font-bold text-white mb-4">{product.price} ₽</p>
                       <Button
                         className="w-full"
-                        onClick={() => addToCart(product)}
+                        onClick={() => {
+                          setSelectedProduct(product);
+                          setPaymentDialogOpen(true);
+                        }}
                       >
                         Купить сейчас
                       </Button>
@@ -331,6 +339,66 @@ const Index = () => {
           <p>&copy; 2024 Интернет-магазин. Все права защищены.</p>
         </div>
       </footer>
+
+      <Dialog open={paymentDialogOpen} onOpenChange={setPaymentDialogOpen}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <DialogTitle>Оплата заказа</DialogTitle>
+          </DialogHeader>
+          {selectedProduct && (
+            <div className="space-y-6">
+              <div className="flex items-center gap-4 p-4 bg-card rounded-lg">
+                <div className="text-4xl">
+                  {selectedProduct.image.startsWith('http') ? (
+                    <img src={selectedProduct.image} alt={selectedProduct.name} className="w-16 h-16 object-cover rounded" />
+                  ) : (
+                    selectedProduct.image
+                  )}
+                </div>
+                <div className="flex-1">
+                  <h4 className="font-bold">{selectedProduct.name}</h4>
+                  <p className="text-2xl font-bold text-white">{selectedProduct.price} ₽</p>
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <div>
+                  <Label htmlFor="cardNumber">Номер карты</Label>
+                  <Input id="cardNumber" placeholder="1234 5678 9012 3456" className="mt-2" />
+                </div>
+                
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="expiry">Срок действия</Label>
+                    <Input id="expiry" placeholder="MM/YY" className="mt-2" />
+                  </div>
+                  <div>
+                    <Label htmlFor="cvv">CVV</Label>
+                    <Input id="cvv" placeholder="123" className="mt-2" type="password" maxLength={3} />
+                  </div>
+                </div>
+
+                <div>
+                  <Label htmlFor="email">Email для чека</Label>
+                  <Input id="email" type="email" placeholder="your@email.com" className="mt-2" />
+                </div>
+              </div>
+
+              <Button 
+                className="w-full" 
+                size="lg"
+                onClick={() => {
+                  addToCart(selectedProduct);
+                  setPaymentDialogOpen(false);
+                  setSelectedProduct(null);
+                }}
+              >
+                Оплатить {selectedProduct.price} ₽
+              </Button>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
