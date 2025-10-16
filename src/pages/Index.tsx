@@ -187,7 +187,7 @@ const Index = () => {
                 Покупай лучшее
               </h2>
               <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Качественные товары по честным ценам. Быстрая доставка по всей России.
+                Качественные товары на FunTime по отличным ценам.
               </p>
               <Button
                 size="lg"
