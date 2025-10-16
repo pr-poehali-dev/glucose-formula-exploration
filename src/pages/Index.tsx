@@ -131,7 +131,7 @@ const Index = () => {
                           <div className="text-4xl">{item.image}</div>
                           <div className="flex-1">
                             <h4 className="font-medium text-sm">{item.name}</h4>
-                            <p className="text-primary font-bold">{item.price} ₽</p>
+                            <p className="text-white font-bold">{item.price} ₽</p>
                           </div>
                           <div className="flex items-center gap-2">
                             <Button
@@ -165,7 +165,7 @@ const Index = () => {
                     <div className="border-t border-border pt-4 mt-4">
                       <div className="flex justify-between items-center mb-4">
                         <span className="text-lg font-medium">Итого:</span>
-                        <span className="text-2xl font-bold text-primary">{totalPrice} ₽</span>
+                        <span className="text-2xl font-bold text-white">{totalPrice} ₽</span>
                       </div>
                       <Button className="w-full" size="lg">
                         Оформить заказ
@@ -212,7 +212,7 @@ const Index = () => {
                     </div>
                     <div className="p-6">
                       <h4 className="font-bold text-lg mb-2">{product.name}</h4>
-                      <p className="text-2xl font-bold text-primary mb-4">{product.price} ₽</p>
+                      <p className="text-2xl font-bold text-white mb-4">{product.price} ₽</p>
                       <Button
                         className="w-full"
                         onClick={() => addToCart(product)}
@@ -256,7 +256,7 @@ const Index = () => {
                   </div>
                   <div className="p-6">
                     <h4 className="font-bold text-lg mb-2">{product.name}</h4>
-                    <p className="text-2xl font-bold text-primary mb-4">{product.price} ₽</p>
+                    <p className="text-2xl font-bold text-white mb-4">{product.price} ₽</p>
                     <Button
                       className="w-full"
                       onClick={() => addToCart(product)}
