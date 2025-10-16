@@ -205,9 +205,9 @@ const Index = () => {
                   <Card key={product.id} className="overflow-hidden group hover:border-primary transition-colors animate-scale-in">
                     <div className="aspect-square bg-card flex items-center justify-center text-8xl overflow-hidden">
                       {product.image.startsWith('http') ? (
-                        <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
+                        <img src={product.image} alt={product.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3" />
                       ) : (
-                        product.image
+                        <span className="transition-transform duration-500 group-hover:scale-125 group-hover:rotate-12">{product.image}</span>
                       )}
                     </div>
                     <div className="p-6">
@@ -249,9 +249,9 @@ const Index = () => {
                 <Card key={product.id} className="overflow-hidden group hover:border-primary transition-colors">
                   <div className="aspect-square bg-card flex items-center justify-center text-8xl overflow-hidden">
                     {product.image.startsWith('http') ? (
-                      <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
+                      <img src={product.image} alt={product.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3" />
                     ) : (
-                      product.image
+                      <span className="transition-transform duration-500 group-hover:scale-125 group-hover:rotate-12">{product.image}</span>
                     )}
                   </div>
                   <div className="p-6">
