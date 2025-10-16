@@ -23,7 +23,7 @@ const Index = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
 
   const products: Product[] = [
-    { id: 1, name: 'FARM', price: 199, category: 'electronics', image: '🕳️' },
+    { id: 1, name: 'FARM', price: 199, category: 'electronics', image: 'https://cdn.poehali.dev/files/89f8789e-2a95-4481-84e3-c61595c8c4d6.jpg' },
     { id: 2, name: 'Умные часы', price: 12990, category: 'electronics', image: '⌚' },
     { id: 3, name: 'Портативная колонка', price: 3490, category: 'electronics', image: '🔊' },
     { id: 4, name: 'Рюкзак городской', price: 2990, category: 'accessories', image: '🎒' },
@@ -203,8 +203,12 @@ const Index = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {products.slice(0, 4).map(product => (
                   <Card key={product.id} className="overflow-hidden group hover:border-primary transition-colors animate-scale-in">
-                    <div className="aspect-square bg-card flex items-center justify-center text-8xl">
-                      {product.image}
+                    <div className="aspect-square bg-card flex items-center justify-center text-8xl overflow-hidden">
+                      {product.image.startsWith('http') ? (
+                        <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
+                      ) : (
+                        product.image
+                      )}
                     </div>
                     <div className="p-6">
                       <h4 className="font-bold text-lg mb-2">{product.name}</h4>
@@ -243,8 +247,12 @@ const Index = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {filteredProducts.map(product => (
                 <Card key={product.id} className="overflow-hidden group hover:border-primary transition-colors">
-                  <div className="aspect-square bg-card flex items-center justify-center text-8xl">
-                    {product.image}
+                  <div className="aspect-square bg-card flex items-center justify-center text-8xl overflow-hidden">
+                    {product.image.startsWith('http') ? (
+                      <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
+                    ) : (
+                      product.image
+                    )}
                   </div>
                   <div className="p-6">
                     <h4 className="font-bold text-lg mb-2">{product.name}</h4>
