@@ -25,7 +25,7 @@ const Index = () => {
   const products: Product[] = [
     { id: 1, name: 'FARM', price: 199, category: 'electronics', image: 'https://cdn.poehali.dev/files/89f8789e-2a95-4481-84e3-c61595c8c4d6.jpg' },
     { id: 2, name: 'DEF', price: 49, category: 'electronics', image: 'https://cdn.poehali.dev/files/c2ed29fb-7256-45f1-84c1-7bf21c318701.jpg' },
-    { id: 3, name: 'Портативная колонка', price: 3490, category: 'electronics', image: '🔊' },
+    { id: 3, name: 'PRIVATE', price: 99, category: 'electronics', image: '' },
     { id: 4, name: 'Рюкзак городской', price: 2990, category: 'accessories', image: '🎒' },
     { id: 5, name: 'Термокружка', price: 890, category: 'accessories', image: '☕' },
     { id: 6, name: 'Фитнес-браслет', price: 2490, category: 'electronics', image: '⌚' },
