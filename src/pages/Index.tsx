@@ -73,7 +73,7 @@ const Index = () => {
     : products.filter(p => p.category === selectedCategory);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative" style={{ backgroundImage: 'url(https://cdn.poehali.dev/files/66f50dff-489f-4643-beb6-8e334b823241.png)', backgroundRepeat: 'repeat', backgroundSize: '200px' }}>
       <header className="sticky top-0 z-50 bg-background/95 backdrop-blur border-b border-border">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <h1 className="text-2xl font-bold">МАГАЗИН</h1>
