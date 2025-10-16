@@ -23,7 +23,7 @@ const Index = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
 
   const products: Product[] = [
-    { id: 1, name: 'Беспроводные наушники', price: 4990, category: 'electronics', image: '🎧' },
+    { id: 1, name: 'FARM', price: 4990, category: 'electronics', image: '🕳️' },
     { id: 2, name: 'Умные часы', price: 12990, category: 'electronics', image: '⌚' },
     { id: 3, name: 'Портативная колонка', price: 3490, category: 'electronics', image: '🔊' },
     { id: 4, name: 'Рюкзак городской', price: 2990, category: 'accessories', image: '🎒' },
